@@ -1,0 +1,72 @@
+//Insert At end in singly linkedList
+
+#include<iostream>
+using namespace std;
+struct Node 
+{
+    int data;
+    Node *next;
+};
+struct Node * head = NULL;
+
+
+struct Node * create_Node_Function()
+{
+    struct Node *create_Node;
+    create_Node = new Node();
+    return create_Node;
+}
+
+
+void insert_End()
+{
+    struct Node * create_end;
+    create_end = create_Node_Function();
+    create_end->next = NULL;
+    cout<<"Enter the node value";
+    cin>>create_end->data;
+    
+    if(head==NULL)
+    {
+        head = create_end;
+    }
+    else
+    {
+        struct Node * temp;
+        temp = head;
+        
+        while(temp->next!=NULL)
+        {
+            temp = temp->next;
+        }
+        
+        temp->next = create_end;
+    }
+}
+
+
+void print()
+{
+    struct Node * traverse;
+    traverse  = head;
+    
+    while(traverse!=NULL)
+    {
+        cout<<traverse->data;
+        traverse = traverse->next;
+    }
+}
+
+int main()
+{
+    
+    int size;
+    cout<<"enter the size of node";
+    cin>>size;
+    for(int i=1; i<=size; i++)
+    {
+      insert_End();
+    }
+   
+    print();
+}
