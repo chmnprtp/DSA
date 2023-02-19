@@ -1,0 +1,72 @@
+//Singly Linked List Insert at beg
+
+
+#include<iostream>
+using namespace std;
+struct Node
+{
+    int data;
+    Node *next;
+};
+
+struct Node *head = NULL;
+
+struct Node *create_Node_Function()
+{
+    struct Node * create_Node;
+    create_Node = new Node();
+    return create_Node;
+}
+
+void insert_beg_Function()
+{
+    struct Node * ins_beg;
+    ins_beg = create_Node_Function();
+    ins_beg->next = NULL;
+    cout<<"Enter the Node Data"<<endl;
+    cin>>ins_beg->data;
+    
+    if(head == NULL)
+    {
+        head = ins_beg;
+    }
+    else
+    {
+        struct Node * temp;
+        temp = head;
+        head = ins_beg;
+        ins_beg->next = temp;
+    }
+}
+
+
+void Print()
+{
+    struct Node *traverse;
+    traverse = head;
+    
+    while(traverse!=NULL)
+    {
+        cout<<" "<<traverse->data;
+        traverse = traverse->next;
+    }
+}
+
+
+
+
+int main()
+{
+    int node_size;
+    cout<<"Enter the number of node you want to enter";
+    cin>>node_size;
+    
+    for(int i=1; i<=node_size; i++)
+    {
+        insert_beg_Function();
+    }
+    
+    
+    Print();
+    
+}
