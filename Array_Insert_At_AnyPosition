@@ -1,0 +1,44 @@
+// Insert at any Position
+
+
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    int size,position,ins_pos;
+    cout<<"Enter the size of array"<<endl;
+    cin>>size;
+    int arr[size];
+    
+    //Get value
+    cout<<"enter the value for array"<<endl;
+    for(int i=0; i<size; i++)
+    {
+        cin>>arr[i];
+    }
+    
+    
+    cout<<"ENter the position where you want to insert"<<endl;
+    cin>>position;
+    cout<<"ENter value to insert at"<<position<<endl;
+    cin>>ins_pos;
+    //Insert at any position
+    size++;
+    arr[size];
+    for(int i=size-1; i>=position; i--)
+    {
+        arr[i]=arr[i-1];
+    }
+    
+    arr[position-1] = ins_pos;
+    
+    
+    //Print value
+    for(int i=0; i<size; i++)
+    {
+        cout<<" ";
+        cout<<arr[i];
+    }
+    
+}
