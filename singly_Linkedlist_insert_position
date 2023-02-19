@@ -1,0 +1,77 @@
+// Insert Node at Specific Position
+
+#include<iostream>
+using namespace std;
+struct Node
+{
+   int data;
+   Node * next;
+};
+struct Node * head = NULL;
+
+
+struct Node * create_Node_Function()
+{
+    struct Node * create_Node;
+    create_Node = new Node();
+    return create_Node;
+}
+
+void insert_at_any_position()
+{
+    struct Node * create_pos;
+    create_pos = create_Node_Function();
+    int position;
+    
+
+    
+    cout<<"Enter position to insert";
+    cin>>position;
+    int count = 1;
+    
+    cout<<"enter value for node";
+    cin>>create_pos->data;
+    create_pos->next = NULL;
+    
+    if(position==1)
+    {
+        struct Node *temp;
+        temp = head;
+        head = create_pos;
+        create_pos->next = temp;
+    }
+    else
+    {
+        struct Node *temp;
+        temp = head;
+        while(count<position-1)
+        {
+            temp = temp->next;
+            count++;
+        }
+        
+        create_pos->next = temp->next;
+        temp->next = create_pos;
+    }
+}
+
+
+void print()
+{
+    struct Node * traverse;
+    traverse = head;
+    
+    while(traverse!=NULL)
+    {
+        cout<<traverse->data;
+        traverse = traverse->next;
+    }
+}
+
+int main()
+{
+    insert_at_any_position();
+    insert_at_any_position();
+    insert_at_any_position();
+    print();
+}
