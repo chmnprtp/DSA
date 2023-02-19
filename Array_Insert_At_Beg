@@ -1,0 +1,45 @@
+#include<iostream>
+
+using namespace std;
+
+int main()
+{
+   
+    int size;
+    int ins_beg;
+    cout<<"Enter the size of array"<<endl;
+    cin>>size;
+    int arr[size];
+    
+    cout<<"enter the arra value";
+    for(int i=0; i<size; i++)
+    {
+        cin>>arr[i];
+    }
+    
+    cout<<"Enter the value to insert at beg"<<endl;
+    cin>>ins_beg;
+    
+    //Insertion at beg
+    size++;
+    arr[size];
+    for(int i=size-1; i>=0; i--)
+    {
+        arr[i+1]=arr[i];                 
+    }
+    
+    arr[0] = ins_beg;
+    
+    
+    
+    
+    
+    
+    //Print
+    for(int i=0; i<size; i++)
+    {
+        cout<<" ";
+        cout<<arr[i];
+    }
+    
+}
