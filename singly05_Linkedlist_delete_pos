@@ -1,0 +1,124 @@
+#include<iostream>
+using namespace std;
+struct Node
+{
+  int data;
+  Node *next;
+};
+struct Node *head = NULL;
+
+
+struct Node * create_Node_Function(){
+    struct Node * create_Node;
+    create_Node = new Node();
+    return create_Node;
+}
+
+
+
+
+// Insertion at beg
+void ins_beg()
+{
+    struct Node * create_beg;
+    create_beg = create_Node_Function();
+    
+    cout<<"Enter the node value";
+    cin>>create_beg->data;
+    create_beg->next = NULL;
+    
+    if(head == NULL)
+    {
+        head = create_beg;
+    }
+    else
+    {
+        struct Node * temp;
+        temp = head;
+        head = create_beg;
+        create_beg->next = temp;
+    }
+    
+}
+
+
+void deletion_at_end()
+{
+    struct Node * temp;
+    struct Node * prevNode;
+    temp = head;
+    while(temp->next!=NULL)
+    {
+        prevNode = temp;
+        temp= temp->next;
+    }
+    
+    if(temp==head)
+    {
+        head=NULL;
+    }
+    else
+    {
+        prevNode->next = NULL;
+    }
+
+    delete(temp);
+}
+
+
+void deletion_at_pos()
+{
+    struct Node *temp;
+    struct Node *nextNode;
+    int pos;
+    int i=1;
+    temp = head;
+    cout<<"Enter Position";
+    cin>>pos;
+    
+    while(i<pos-1)
+    {
+        temp = temp->next;
+        i++;
+    }
+    
+    nextNode = temp->next;
+    temp->next = nextNode->next;
+    delete(nextNode);
+}
+
+
+
+
+
+
+
+//Print
+void print()
+{
+    struct Node * traverse;
+    traverse = head;
+    
+    while(traverse!=NULL)
+    {
+        cout<<traverse->data;
+        traverse = traverse->next;
+    }
+}
+
+
+int main()
+{
+    int size;
+    cout<<"enter the no. of node";
+    cin>>size;
+    
+    for(int i=1; i<=size; i++)
+    {
+        ins_beg();
+    }
+    
+    deletion_at_pos();
+    print();
+    
+}
