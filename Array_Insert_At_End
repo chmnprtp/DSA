@@ -1,0 +1,39 @@
+//Insertion at end in array
+
+#include<iostream>
+using namespace std;
+
+int main()
+{
+    int size;
+    int ins_end;
+    cout<<"Enter the size of an array"<<endl;
+    cin>>size;
+    int arr[size];
+    
+    //get value 
+    cout<<"Enter the Value for an array"<<endl;
+    for(int i=0; i<size; i++)
+    {
+       cin>>arr[i];
+    }
+    
+    
+    size++;
+    
+    arr[size];
+    //Insert at end
+    cout<<"Enter the value to insert at end";
+    cin>>ins_end;
+    arr[size-1] = ins_end;
+    
+    
+    //Print
+    for(int i=0; i<size; i++)
+    {
+        cout<<" ";
+        cout<<arr[i];
+    }
+    
+    
+}
